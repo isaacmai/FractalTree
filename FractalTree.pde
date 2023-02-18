@@ -6,6 +6,7 @@ public void setup()
 
 public void draw(){
   background(0);
+  stroke(0,255,0);
   myFractal(600,600,700);
   //fill(Math.random()200, Math.random()200, Math.random()200);
 }
