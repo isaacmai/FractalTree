@@ -1,3 +1,12 @@
+private double fractionLength = .8; 
+private int smallestBranch = 10; 
+private double branchAngle = .2;  
+public void setup() 
+{   
+	size(640,480);    
+	noLoop(); 
+} 
+
 public void draw(){
   background(0);
   myFractal(600,600,700);
