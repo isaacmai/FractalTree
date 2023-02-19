@@ -1,23 +1,31 @@
+private double fractionLength = .8; 
+private int smallestBranch = 10; 
+private double branchAngle = .2;
 public void setup() 
-{   
-	size(1000,850);    
-	noLoop(); 
+{
+    size(640,480);
+    noLoop(); 
 } 
-
-public void draw(){
-  background(0);
-  stroke(0,255,0);
-  myFractal(600,600,700);
-  //fill(Math.random()200, Math.random()200, Math.random()200);
-}
-
-public void myFractal(int x, int y, int siz){
-  ellipse(x,y, siz,siz);
-  if(siz > 10){
-    fill(80, 170, Math.random()200);
-    myFractal(x-siz/2, y-siz/2, siz/2);
-    myFractal(x+siz/2, y+siz/2, siz/2);
-    myFractal(x+siz/2, y-siz/2, siz/2);
-    //myFractal(x-siz/2, y+siz/2, siz/2);
-  }
+public void draw() 
+{
+    background(0);
+    stroke(0,255,0);
+    line(320,480,320,380);
+    drawBranches(320,380,100,3Math.PI/2);
+} 
+public void drawBranches(int x,int y, double branchLength, double angle) 
+{
+    double angle1 = angle + branchAngle;
+    double angle2 = angle - branchAngle;
+    branchLength = branchLength fractionLength;
+    int endX1 = (int)(branchLengthMath.cos(angle1) + x);
+    int endY1 = (int)(branchLengthMath.sin(angle1) + y); 
+    int endX2 = (int)(branchLengthMath.cos(angle2) - x);
+    int endY2 = (int)(branchLengthMath.sin(angle2) -y);
+    line(x,y,endX1,endY1);
+    line(x,y,endX2,endY2);
+    if (branchLength > smallestBranch){
+        drawBranches(endX1, endY1, branchLength, angle1);
+        drawBranches(endX2, endY2, branchLength, angle2);
+    }
 }
