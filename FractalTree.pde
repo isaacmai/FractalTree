@@ -21,7 +21,7 @@ public void drawBranches(int x,int y, double branchLength, double angle)
     int endX1 = (int)(branchLengthMath.cos(angle1) + x);
     int endY1 = (int)(branchLengthMath.sin(angle1) + y); 
     int endX2 = (int)(branchLengthMath.cos(angle2) - x);
-    int endY2 = (int)(branchLengthMath.sin(angle2) -y);
+    int endY2 = (int)(branchLengthMath.sin(angle2) - y);
     line(x,y,endX1,endY1);
     line(x,y,endX2,endY2);
     if (branchLength > smallestBranch){
